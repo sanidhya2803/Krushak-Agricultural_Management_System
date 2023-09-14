@@ -1,4 +1,4 @@
-# Krushak-Farm_Management_System
+# Krushak-Agricultural_Management_System
 <br>
 For output click the link...
 <br>
