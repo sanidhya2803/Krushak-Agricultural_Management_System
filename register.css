@@ -1,0 +1,127 @@
+body{
+    margin:0;
+    padding:0;
+}
+.container1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #d786ff;
+    
+}
+.register{
+    background-color: #fff;
+    display: flex;
+    width: 70%;
+    height: 80%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.left{
+    flex:1;
+    padding: 0px 0px 0px 50px;
+    background-color: #f0f0f0;
+
+}
+.h1-register{
+    font-size:50px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+}
+input{
+    width: 70%;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 3px 2px 3px rgba(0,0,0,.4);
+    font-family:'Courier New', Courier, monospace;
+    font-weight:bold;
+    caret-color: black;
+}
+input::placeholder{
+    position: relative;
+    left: 10px;
+}
+input:focus{
+    outline: none;
+}
+.register-button{
+    margin-top:20px;
+    border: none;
+    cursor:pointer;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #ffc4c4;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+.register-button:hover{
+    color: white;
+    background-color: #30ff30;
+}
+.register-button:active{
+    box-shadow: 3px 2px 4px rgba(0,0,0,.4);
+}
+
+.right{
+    flex:1;
+    padding: 0px 0px 0px 50px;
+    background-image: linear-gradient(rgba(188, 45, 255, 0.299),rgba(169, 138, 0, 0.413)) ,url("register.html");
+    background-size: cover;
+    
+}
+.hello1{
+    color: green;
+    text-shadow: 2px 3px 2px rgba(0,0,0,.4);
+    font-size: 50px;
+    width:0;
+    overflow: hidden;
+    animation-name: typing1;
+    animation-timing-function: steps(30,end);
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+    white-space: nowrap;
+    transition: all 0.3s;
+
+}
+@keyframes typing1 {
+    from {width:0%}
+    to {width:100%}
+    
+}
+.p-lorem{
+    font-family: 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.p-account{
+    font-size:20px;
+    color:rgb(133, 3, 255);
+}
+.signbutton{
+    cursor:pointer;
+    text-decoration: none;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight:bold;
+    transition: all 0.3s;
+}
+.signbutton:hover{
+    color:white;
+    background-color: #a4d100;
+}
+.signbutton:active{
+    box-shadow: 3px 3px 4px rgba(0,0,0,.4);
+}
+.signbutton1{
+    color:rgb(241, 22, 135);
+    text-decoration: none;
+    transition: all 0.3s;
+    
+}
+.signbutton1:hover{
+    color:rgb(53, 255, 53);
+}

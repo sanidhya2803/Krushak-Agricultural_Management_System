@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body::-webkit-scrollbar {
+    display: none; 
+}
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.navlogo{
+    position: relative;
+    width: 125px;
+    height: 45px;
+    left: 25px;
+}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px;
+    background-color: #f4f6f5;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    z-index: 900;
+    top: 0;
+    left: 0;
+    max-height: 90px;
+}
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 30px;
+}
+.search-container{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    /* bottom: 0px; */
+    padding: 0px 10px 10px 10px;
+}
+/* .search-container:focus{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 65px;
+} */
+.search-container button{
+    background-color: #ffffff;
+    border: 0px solid;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search{
+    position: relative;
+    display: flex;
+    display: grid;
+    place-items: center;
+    justify-content: center;
+    border: 0px solid;
+    background-color: transparent;
+    left: 30px;
+}
+div.search.active{
+    position: fixed;
+    top: 33px;
+    left: 276px;
+}
+.search-container img{
+    width: 20px;
+    height: 20px;
+}
+.sbtn{
+    position: relative;      
+    width: 40px;
+    height: 40px;
+    transition: 0.2s ease-in-out;
+    background-color: white;
+    border-radius: 30px;
+    top: 5px;
+    left: 5px;
+}
+.sbtn:hover{
+    background-color: #93e0bf;
+    width: 40px;
+    border-radius: 10px;
+    height: 40px;
+}
+.input{
+    width: 480px;
+    border: 0px solid;
+    border-bottom: 2px solid;
+    background-color: transparent;
+    padding: 15px 0px 0px 12px;
+}
+.input::placeholder{
+    position: relative;  
+    font-family: cursive;  
+}
+.input:focus{
+    outline: none;
+}
+.active > .auto-search{
+    position: relative;
+    padding: 10px 10px;
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1000;
+    /* top: 60px;  */
+}
+.active > .auto-search li{
+    display: block;
+    z-index: 1000;
+}
+.auto-search{
+    padding: 0px;
+    max-height: 200px;
+    width: 457px;
+    overflow-y: auto;
+    overflow-x: auto;
+    opacity:0;
+    pointer-events: none; 
+    z-index: 1000;
+}
+.auto-search li{
+    list-style: none;
+    padding: 10px 15px;
+    width: 100%;
+    cursor: pointer;
+    display: none;
+    z-index: 1000 !important;
+    background-color: #cce7d0;
+}
+.auto-search li:hover{
+    background-color: #8c8686;
+    z-index: 1000;
+}
+.navbar{
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 50px;
+    position: relative;
+    left: 25px;
+}
+ul button{
+    position: relative;
+    width: 70px;
+    height: 45px;
+    text-decoration: none;
+    background-color: #000;
+    color: #f4f6f5;
+    font-size: 20px;
+    font-weight: 700;
+    transition: 0.3s ease;
+    font-family: 'Pacifico', cursive;
+    border: 0px;
+    border-radius: 10px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+ul button:hover{
+    background-color: #088178;
+    color: black;
+}
+ul a{
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;
+    font-weight: 700;
+    transition: 0.3s ease;
+    font-family: 'Pacifico', cursive;
+}
+ul a:hover{
+    color: #088178;
+}
+ul a.active{
+    color: #088178;
+}
+ul .cartimg{
+    border-radius: 30px;
+    background-color: #f4f6f5;
+    cursor: pointer;
+    right: 20px;
+    transition: 0.3s ease-in-out;
+}
+ul .cartimg:hover{
+    background-color: #088178;
+}
+img.cart{
+    display: flex;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+}
+.cart{
+    padding: 50px;
+}
+.cart table{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    white-space: nowrap;
+}
+.cart table img{
+    width: 70px;
+}
+.cart table td:nth-child(1){
+    font-size: 18px;
+    width: 100px;
+    text-align: center;
+}
+.cart table td:nth-child(2){
+    font-size: 18px;
+    width: 150px;
+    text-align: center;
+}.cart table td:nth-child(3){
+    font-size: 18px;
+    width: 250px;
+    text-align: center;
+}
+.cart table td:nth-child(4),
+.cart table td:nth-child(5){
+    font-size: 18px;
+    width: 150px;
+    text-align: center;
+}
+.cart table td:nth-child(6){
+    font-size: 18px;
+    font-weight: 600;
+    font-size: 18px;
+    width: 150px;
+    text-align: center;
+}
+.cart table td:nth-child(5) input{
+    width: 70px;
+    padding: 10px 5px 10px 15px;
+}
+.cart table thead{
+    border: 1px solid #e2e9e1;
+    border-left: none;
+    border-right: none;
+}
+.cart table thead td{
+    font-family: 'Pacifico', cursive;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    padding: 18px 0;
+}
+.cart table tbody tr td{
+    padding-top: 15px;
+}
+.cart table tbody td{
+    font-size: 13px;
+}
+.subtotal{
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+}
+.total{
+    width: 60%;
+    margin-bottom: 30px;
+    border: 1px solid #e2e9e1;
+    padding: 30px;
+}
+.total table{
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.total td{
+    width: 50%;
+    border: 1px solid #e2e9e1;
+    padding: 10px;
+    font-size: 18px;
+}
+.total h3{
+    font-size: 25px;
+    padding-bottom: 30px;
+}
+.total button{
+    background-color: #088178;
+    color: #fff;
+    padding: 12px 20px;
+    border: 0px solid;
+    border-radius: 10px;
+    font-family: 'Pacifico', cursive;
+}
+    </style>
+</head>
+<body>
+        <!-- ...............................header........................ -->
+        <div class="header">
+            <div class="logo">
+                <a href="ecom.html"><img class="navlogo" src="images/Krusha-logo-bw.png" alt="krushak"></a>
+            </div> 
+        <!-- ...............................searchbar........................ -->
+        <div class="wrapper">
+            <div class="search">
+                <div class="search-container">
+                <input class="input" type="text" placeholder="Search Here about Soil..." />
+                <button class="sbtn" onclick=""><img src="images/search-icon.png" alt=""></button>
+                </div>
+                <div class="auto-search">
+                    <a href="black-soil.html" class="black"><li>Black Soil</li></a>
+                    <a href="rock-soil.html" ><li>Rock Soil</li></a>
+                    <a href="white-soil.html"><li>White Soil</li></a>
+                    <a href="red-soil.html"><li>Red Soil</li></a>
+                    <a href="basalt-rock.html"><li>Basalt Rock</li></a>
+                    <a href="alluvial.html"></a><li>Alluvial Soil</li>
+                    <a href="black-cotton-soil.html"><li>Black Cotton Soil</li></a>
+                    <a href="red-yellow-soil.html"><li>Red & Yellow Soil</li></a>
+                    <a href="laterite.html"><li>Laterite Soil</li></a>
+                    <a href="forest-soil.html"><li>Mountainous or Forest Soil</li></a>
+                    <a href="saline-soil.html"><li>Saline Soil</li></a>
+                    <a href="alkaline-soil.html"><li>Alkaline Soil</li></a>
+                    <a href="peaty-soil.html"><li>Peaty Soil</li></a>
+                    <a href="marshy-soil.html"><li>Marshy Soil</li></a>
+                </div>
+                <!-- <button class="sbtn">Search</button> -->
+            </div>
+        </div>
+        <!-- ...............................navbar........................ -->     
+                <div>
+                    <ul class="navbar">
+                        <li><a  href="ecom.html">Home</a></li>
+                        <li><a  href="product.html">Product</a></li>
+                        <li><a  href="shop.html">Shop</a></li>
+                        <li><a  href="contact.html">Contact Us</a></li>
+                        <li><a  href="login.html"><button>Login</button></a></li>
+                        <li><a class="active" href="cart.html"><button class="cartimg"><img class="cart" src="images/cart-logo.png" alt="cart"></button></a></li>
+                    </ul>
+                </div>
+        </div>
+        <!-- ...............................Cart List........................ -->   
+        <div class="cart">
+            <table width="100%">
+                <thead>
+                    <tr>
+                        <td>Remove</td>
+                        <td class="cart-img">Image</td>
+                        <td class="car-prodt">Product</td>
+                        <td class="cart-price">Price</td>
+                        <td class="cart-quantity">Quantity</td>
+                        <td class="stotal">Subtotal</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><button class="btn-danger"><i class="fa fa-times-circle"></i></button></td>
+                        <td class="cart-img"><img src="images/fertilizer1.png" alt=""></td>
+                        <td class="car-prodt">Grower Solution</td>
+                        <td class="cart-price">₹100</td>
+                        <td class="cart-quantity"><input type="number" value="1"></td>
+                        <td class="stotal">₹100</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- ...............................Subtotal........................ -->
+        <div class="subtotal">
+            <div class="total">
+                <h3>Cart Total</h3>
+                <table>
+                    <tr>
+                        <td>Cart Subtotal</td>
+                        <td>₹ 100</td>
+                    </tr>
+                    <tr>
+                        <td>Shipping</td>
+                        <td>Free</td>
+                    </tr>
+                    <tr>
+                        <td> <strong>Total</strong> </td>
+                        <td> <strong>₹ 100</strong> </td>
+                    </tr>
+                </table>
+                <button class="pay">Proceed to checkout</button>
+            </div>
+        </div>
+</body>
+</html>
